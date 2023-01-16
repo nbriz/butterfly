@@ -1,11 +1,31 @@
 <body></body>
 <script>
-  
-  document.body.style.backgroundColor = '#FA81EB'
 
-  const gifWidth = 150
-  const gifHeight = 150
-  const img = document.createElement('img')
-  img.src = 'butterfly.gif'
-  document.body.appendChild(img)
+  const gifWidth = 50
+  const gifHeight = 50
+  const numColumns = window.innerWidth / gifWidth
+
+  function createGif (x, y) {
+    // add image element to the page
+    const gif = document.createElement('img')
+    gif.src = 'butterfly.gif'
+    document.body.appendChild(gif)
+    // change img element's CSS position
+    gif.style.position = 'absolute'
+    gif.style.left = x + 'px'
+    gif.style.top = y + 'px'
+  }
+  
+  function setup () {
+    document.body.style.backgroundColor = '#e585ca'
+    document.body.style.overflow = 'hidden'
+    for (let i = 0; i < numColumns; i++) {
+      const x = i * gifWidth
+      const y = 0
+			createGif(x, y)
+    }
+  }
+    
+  setup()
+  
 </script>
